@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Jal.AssemblyFinder")]
-[assembly: AssemblyDescription("Just another library to find assembies")]
+[assembly: AssemblyDescription("Just another library to find assemblies")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Raul Naupari")]
 [assembly: AssemblyProduct("Jal.AssemblyFinder")]
