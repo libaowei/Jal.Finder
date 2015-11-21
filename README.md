@@ -1,5 +1,5 @@
 # Jal.AssemblyFinder
-Just another library to find assembies
+Just another library to find assemblies
 
 ## How to use?
 Tag your assembly adding the next attribute in your AssemblyInfo.cs file:
