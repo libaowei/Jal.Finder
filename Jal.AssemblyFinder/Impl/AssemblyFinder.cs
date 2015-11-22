@@ -35,12 +35,12 @@ namespace Jal.AssemblyFinder.Impl
             var filteredAssemblies = new List<Assembly>();
             foreach (var assembly in assemblies)
             {
-                var attributes = assembly.GetCustomAttributes(typeof(AutoRegisterAssemblyAttribute), false);
+                var attributes = assembly.GetCustomAttributes(typeof(AssemblyTagAttribute), false);
                 if (attributes.Length > 0)
                 {
                     foreach (var o in attributes)
                     {
-                        var attribute = o as AutoRegisterAssemblyAttribute;
+                        var attribute = o as AssemblyTagAttribute;
                         if (attribute != null && attribute.Name == autoRegisterName)
                         {
                             filteredAssemblies.Add(assembly);

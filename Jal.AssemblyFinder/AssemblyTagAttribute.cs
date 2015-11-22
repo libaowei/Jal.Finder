@@ -3,16 +3,16 @@
 namespace Jal.AssemblyFinder
 {
     [AttributeUsage(AttributeTargets.Assembly, AllowMultiple = true)]
-    public class AutoRegisterAssemblyAttribute : Attribute
+    public class AssemblyTagAttribute : Attribute
     {
         public string Name { get; set; }
 
-        public AutoRegisterAssemblyAttribute()
+        public AssemblyTagAttribute()
         {
             Name = GetType().Name;
         }
 
-        public AutoRegisterAssemblyAttribute(string name)
+        public AssemblyTagAttribute(string name)
         {
             Name = name;
         }

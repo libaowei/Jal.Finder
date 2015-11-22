@@ -39,7 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AutoRegisterAssemblyAttribute.cs" />
+    <Compile Include="AssemblyTagAttribute.cs" />
     <Compile Include="Impl\AssemblyFinder.cs" />
     <Compile Include="Interface\IAssemblyFinder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
