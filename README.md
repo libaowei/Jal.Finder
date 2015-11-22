@@ -4,7 +4,7 @@ Just another library to find assemblies
 ## How to use?
 Tag your assembly adding the next attribute in your AssemblyInfo.cs file:
 
-    [assembly: AutoRegisterAssembly("Tag")]
+    [assembly: AssemblyTag("Tag")]
     
 Initiate the finder
 
