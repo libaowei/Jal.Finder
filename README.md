@@ -14,6 +14,8 @@ Initiate the finder
 Search the assemblies
 
     var assemblies = AssemblyFinder.Current.GetAssemblies("Tag");
+    
+[![Build status](https://ci.appveyor.com/api/projects/status/riewcxw29gy77855/branch/master?svg=true)](https://ci.appveyor.com/project/raulnq/jal-assemblyfinder/branch/master)
 
 
 
