@@ -16,6 +16,8 @@ Search the assemblies
     var assemblies = AssemblyFinder.Current.GetAssemblies("Tag");
     
 [![Build status](https://ci.appveyor.com/api/projects/status/riewcxw29gy77855/branch/master?svg=true)](https://ci.appveyor.com/project/raulnq/jal-assemblyfinder/branch/master)
+[![NuGet](https://img.shields.io/nuget/dt/Jal.AssemblyFinder.svg)](https://www.nuget.org/packages/Jal.AssemblyFinder) 
+[![NuGet](https://img.shields.io/nuget/vpre/Jal.AssemblyFinder.svg)](https://www.nuget.org/packages/Jal.AssemblyFinder)
 
 
 
