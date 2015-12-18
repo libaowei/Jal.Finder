@@ -74,5 +74,20 @@ namespace Jal.AssemblyFinder.Impl
             }
             return instances.ToArray();
         }
+
+        public Type[] GetTypesOf<T>(Assembly[] assemblies)
+        {
+            var type = typeof(T);
+            var instances = new List<Type>();
+            foreach (var assembly in assemblies)
+            {
+                var assemblyInstance = (
+                    assembly.GetTypes()
+                    .Where(t => type.IsAssignableFrom(t))
+                    ).ToArray();
+                instances.AddRange(assemblyInstance);
+            }
+            return instances.ToArray();
+        }
     }
 }

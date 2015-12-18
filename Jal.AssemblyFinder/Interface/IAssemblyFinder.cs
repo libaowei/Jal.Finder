@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 
 namespace Jal.AssemblyFinder.Interface
 {
@@ -11,5 +12,7 @@ namespace Jal.AssemblyFinder.Interface
         Assembly GetAssembly(string autoRegisterName);
 
         T[] GetInstancesOf<T>(Assembly[] assemblies);
+
+        Type[] GetTypesOf<T>(Assembly[] assemblies);
     }
 }
