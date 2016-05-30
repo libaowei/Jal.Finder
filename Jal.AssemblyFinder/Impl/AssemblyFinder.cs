@@ -3,15 +3,22 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using Jal.AssemblyFinder.Fluent;
 using Jal.AssemblyFinder.Interface;
+using Jal.AssemblyFinder.Interface.Fluent;
 
 namespace Jal.AssemblyFinder.Impl
 {
     public class AssemblyFinder : IAssemblyFinder
     {
-        public static IAssemblyFinder Current
+        public static IAssemblyFinder Current;
+
+        public static IAssemblyFinderStartFluentBuilder Builder
         {
-            get; set;
+            get
+            {
+                return new AssemblyFinderFluentBuilder();
+            }
         }
 
         private readonly string _directoryPath;
@@ -24,7 +31,7 @@ namespace Jal.AssemblyFinder.Impl
         public Assembly[] GetAssemblies()
         {
             var assemblyFiles = from file in Directory.GetFiles(_directoryPath)
-                                where (file.Contains(".dll") && !file.Contains(".config"))
+                                where ((file.Contains(".dll") || file.Contains(".exe")) && !file.Contains(".config"))
                                 select file;
             return assemblyFiles.Select(Assembly.LoadFrom).ToArray();
         }

@@ -40,7 +40,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyTagAttribute.cs" />
+    <Compile Include="Fluent\AssemblyFinderFluentBuilder.cs" />
     <Compile Include="Impl\AssemblyFinder.cs" />
+    <Compile Include="Interface\Fluent\IAssemblyFinderEndFluentBuilder.cs" />
+    <Compile Include="Interface\Fluent\IAssemblyFinderStartFluentBuilder.cs" />
     <Compile Include="Interface\IAssemblyFinder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
