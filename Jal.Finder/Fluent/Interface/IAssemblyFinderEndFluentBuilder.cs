@@ -1,4 +1,6 @@
-﻿namespace Jal.AssemblyFinder.Interface.Fluent
+﻿using Jal.Finder.Interface;
+
+namespace Jal.Finder.Fluent.Interface
 {
     public interface IAssemblyFinderEndFluentBuilder
     {

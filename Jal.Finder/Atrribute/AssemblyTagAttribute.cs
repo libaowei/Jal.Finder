@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Jal.AssemblyFinder
+namespace Jal.Finder.Atrribute
 {
     [AttributeUsage(AttributeTargets.Assembly, AllowMultiple = true)]
     public class AssemblyTagAttribute : Attribute

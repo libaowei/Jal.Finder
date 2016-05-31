@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using Jal.AssemblyFinder.Fluent;
-using Jal.AssemblyFinder.Interface;
-using Jal.AssemblyFinder.Interface.Fluent;
+using Jal.Finder.Atrribute;
+using Jal.Finder.Fluent.Impl;
+using Jal.Finder.Fluent.Interface;
+using Jal.Finder.Interface;
 
-namespace Jal.AssemblyFinder.Impl
+namespace Jal.Finder.Impl
 {
     public class AssemblyFinder : IAssemblyFinder
     {
@@ -36,7 +36,7 @@ namespace Jal.AssemblyFinder.Impl
             return assemblyFiles.Select(Assembly.LoadFrom).ToArray();
         }
 
-        public Assembly[] GetAssemblies(string autoRegisterName)
+        public Assembly[] GetAssemblies(string tag)
         {
             var assemblies = GetAssemblies();
             var filteredAssemblies = new List<Assembly>();
@@ -48,7 +48,7 @@ namespace Jal.AssemblyFinder.Impl
                     foreach (var o in attributes)
                     {
                         var attribute = o as AssemblyTagAttribute;
-                        if (attribute != null && attribute.Name == autoRegisterName)
+                        if (attribute != null && attribute.Name == tag)
                         {
                             filteredAssemblies.Add(assembly);
                         }
@@ -59,42 +59,42 @@ namespace Jal.AssemblyFinder.Impl
             return filteredAssemblies.ToArray();
         }
 
-        public Assembly GetAssembly(string autoRegisterName)
+        public Assembly GetAssembly(string tag)
         {
-            var assemblies = GetAssemblies(autoRegisterName);
+            var assemblies = GetAssemblies(tag);
             return assemblies.FirstOrDefault();
         }
 
-        public T[] GetInstancesOf<T>(Assembly[] assemblies)
-        {
-            var type = typeof (T);
-            var instances = new List<T>();
-            foreach (var assembly in assemblies)
-            {
-                var assemblyInstance = (
-                    assembly.GetTypes()
-                    .Where(t => type.IsAssignableFrom(t) && t.GetConstructor(Type.EmptyTypes) != null)
-                    .Select(Activator.CreateInstance)
-                    .Cast<T>()
-                    ).ToArray();
-                instances.AddRange(assemblyInstance);
-            }
-            return instances.ToArray();
-        }
+        //public T[] GetInstancesOf<T>(Assembly[] assemblies)
+        //{
+        //    var type = typeof (T);
+        //    var instances = new List<T>();
+        //    foreach (var assembly in assemblies)
+        //    {
+        //        var assemblyInstance = (
+        //            assembly.GetTypes()
+        //            .Where(t => type.IsAssignableFrom(t) && t.GetConstructor(Type.EmptyTypes) != null)
+        //            .Select(Activator.CreateInstance)
+        //            .Cast<T>()
+        //            ).ToArray();
+        //        instances.AddRange(assemblyInstance);
+        //    }
+        //    return instances.ToArray();
+        //}
 
-        public Type[] GetTypesOf<T>(Assembly[] assemblies)
-        {
-            var type = typeof(T);
-            var instances = new List<Type>();
-            foreach (var assembly in assemblies)
-            {
-                var assemblyInstance = (
-                    assembly.GetTypes()
-                    .Where(t => type.IsAssignableFrom(t))
-                    ).ToArray();
-                instances.AddRange(assemblyInstance);
-            }
-            return instances.ToArray();
-        }
+        //public Type[] GetTypesOf<T>(Assembly[] assemblies)
+        //{
+        //    var type = typeof(T);
+        //    var instances = new List<Type>();
+        //    foreach (var assembly in assemblies)
+        //    {
+        //        var assemblyInstance = (
+        //            assembly.GetTypes()
+        //            .Where(t => type.IsAssignableFrom(t))
+        //            ).ToArray();
+        //        instances.AddRange(assemblyInstance);
+        //    }
+        //    return instances.ToArray();
+        //}
     }
 }

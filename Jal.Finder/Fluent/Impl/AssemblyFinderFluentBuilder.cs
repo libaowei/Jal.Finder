@@ -1,7 +1,7 @@
-﻿using Jal.AssemblyFinder.Interface;
-using Jal.AssemblyFinder.Interface.Fluent;
+﻿using Jal.Finder.Fluent.Interface;
+using Jal.Finder.Interface;
 
-namespace Jal.AssemblyFinder.Fluent
+namespace Jal.Finder.Fluent.Impl
 {
     public class AssemblyFinderFluentBuilder: IAssemblyFinderEndFluentBuilder, IAssemblyFinderStartFluentBuilder
     {
@@ -9,7 +9,7 @@ namespace Jal.AssemblyFinder.Fluent
 
         public IAssemblyFinder Create
         {
-            get { return new Impl.AssemblyFinder(_path); }
+            get { return new Finder.Impl.AssemblyFinder(_path); }
         }
 
         public IAssemblyFinderEndFluentBuilder UsePath(string path)

@@ -7,8 +7,8 @@
     <ProjectGuid>{F81AFD91-2E1D-4E9D-9CE3-E2B9B79D1D92}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Jal.AssemblyFinder</RootNamespace>
-    <AssemblyName>Jal.AssemblyFinder</AssemblyName>
+    <RootNamespace>Jal.Finder</RootNamespace>
+    <AssemblyName>Jal.Finder</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,11 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssemblyTagAttribute.cs" />
-    <Compile Include="Fluent\AssemblyFinderFluentBuilder.cs" />
+    <Compile Include="Atrribute\AssemblyTagAttribute.cs" />
+    <Compile Include="Fluent\Impl\AssemblyFinderFluentBuilder.cs" />
     <Compile Include="Impl\AssemblyFinder.cs" />
-    <Compile Include="Interface\Fluent\IAssemblyFinderEndFluentBuilder.cs" />
-    <Compile Include="Interface\Fluent\IAssemblyFinderStartFluentBuilder.cs" />
+    <Compile Include="Fluent\Interface\IAssemblyFinderEndFluentBuilder.cs" />
+    <Compile Include="Fluent\Interface\IAssemblyFinderStartFluentBuilder.cs" />
     <Compile Include="Interface\IAssemblyFinder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
