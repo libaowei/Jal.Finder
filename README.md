@@ -1,4 +1,4 @@
-# Jal.AssemblyFinder
+# Jal.Finder
 Just another library to find assemblies
 
 ## How to use?
