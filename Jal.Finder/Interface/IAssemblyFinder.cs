@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 
 namespace Jal.Finder.Interface
 {
@@ -6,12 +7,10 @@ namespace Jal.Finder.Interface
     {
         Assembly[] GetAssemblies();
 
-        Assembly[] GetAssemblies(string tag);
+        Assembly[] GetAssembliesTagged<TTag>() where TTag : Attribute;
 
-        Assembly GetAssembly(string tag);
+        Assembly[] GetAssembliesTagged<TTag>(Func<TTag, bool> statement) where TTag : Attribute;
 
-        //T[] GetInstancesOf<T>(Assembly[] assemblies);
-
-        //Type[] GetTypesOf<T>(Assembly[] assemblies);
+        Assembly[] GetAssemblies(Func<Assembly, bool> statement);
     }
 }

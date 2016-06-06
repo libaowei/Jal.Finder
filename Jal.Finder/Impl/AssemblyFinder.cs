@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using Jal.Finder.Atrribute;
 using Jal.Finder.Fluent.Impl;
 using Jal.Finder.Fluent.Interface;
 using Jal.Finder.Interface;
@@ -31,24 +31,41 @@ namespace Jal.Finder.Impl
         public Assembly[] GetAssemblies()
         {
             var assemblyFiles = from file in Directory.GetFiles(_directoryPath)
-                                where ((file.Contains(".dll") || file.Contains(".exe")) && !file.Contains(".config"))
+                                where ((file.Contains(".dll") || file.Contains(".exe")) && !(file.Contains(".config") || file.Contains(".manifest")))
                                 select file;
             return assemblyFiles.Select(Assembly.LoadFrom).ToArray();
         }
 
-        public Assembly[] GetAssemblies(string tag)
+
+        public Assembly[] GetAssembliesTagged<TTag>() where TTag : Attribute
         {
             var assemblies = GetAssemblies();
             var filteredAssemblies = new List<Assembly>();
             foreach (var assembly in assemblies)
             {
-                var attributes = assembly.GetCustomAttributes(typeof(AssemblyTagAttribute), false);
+                var attributes = assembly.GetCustomAttributes(typeof(TTag), false);
+                if (attributes.Length > 0)
+                {
+                    filteredAssemblies.Add(assembly);
+                }
+            }
+
+            return filteredAssemblies.ToArray();
+        }
+
+        public Assembly[] GetAssembliesTagged<TTag>(Func<TTag, bool> statement) where TTag : Attribute
+        {
+            var assemblies = GetAssemblies();
+            var filteredAssemblies = new List<Assembly>();
+            foreach (var assembly in assemblies)
+            {
+                var attributes = assembly.GetCustomAttributes(typeof(TTag), false);
                 if (attributes.Length > 0)
                 {
                     foreach (var o in attributes)
                     {
-                        var attribute = o as AssemblyTagAttribute;
-                        if (attribute != null && attribute.Name == tag)
+                        var attribute = o as TTag;
+                        if (statement(attribute))
                         {
                             filteredAssemblies.Add(assembly);
                         }
@@ -59,10 +76,10 @@ namespace Jal.Finder.Impl
             return filteredAssemblies.ToArray();
         }
 
-        public Assembly GetAssembly(string tag)
+        public Assembly[] GetAssemblies(Func<Assembly, bool> statement)
         {
-            var assemblies = GetAssemblies(tag);
-            return assemblies.FirstOrDefault();
+            var assemblies = GetAssemblies();
+            return assemblies.Where(statement).ToArray();
         }
 
         //public T[] GetInstancesOf<T>(Assembly[] assemblies)
