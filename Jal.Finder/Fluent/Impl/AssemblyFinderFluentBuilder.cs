@@ -1,20 +1,27 @@
-﻿using Jal.Finder.Fluent.Interface;
+﻿using System;
+using Jal.Finder.Fluent.Interface;
 using Jal.Finder.Interface;
 
 namespace Jal.Finder.Fluent.Impl
 {
     public class AssemblyFinderFluentBuilder: IAssemblyFinderEndFluentBuilder, IAssemblyFinderStartFluentBuilder
     {
-        private string _path;
+        public string Path;
 
         public IAssemblyFinder Create
         {
-            get { return new Finder.Impl.AssemblyFinder(_path); }
+            get { return new Finder.Impl.AssemblyFinder(Path); }
         }
 
         public IAssemblyFinderEndFluentBuilder UsePath(string path)
         {
-            _path = path;
+            if (string.IsNullOrWhiteSpace(path))
+            {
+                throw new ArgumentException(nameof(path));
+            }
+
+            Path = path;
+
             return this;
         }
     }
