@@ -1,15 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jal.Finder", "Jal.Finder\Jal.Finder.csproj", "{F81AFD91-2E1D-4E9D-9CE3-E2B9B79D1D92}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{FFEABF0E-6A05-4430-A5AE-45BCEFBA4A6F}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\packages.config = .nuget\packages.config
-		README.md = README.md
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jal.Finder", "Jal.Finder\Jal.Finder.csproj", "{F81AFD91-2E1D-4E9D-9CE3-E2B9B79D1D92}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jal.Finder.Test", "Jal.Finder.Test\Jal.Finder.Test.csproj", "{83622868-8EC4-4FCF-8D50-241D9A680506}"
 EndProject
@@ -30,5 +24,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5BB5CDEE-E1C8-4341-99FC-DBEFBFF0FDCB}
 	EndGlobalSection
 EndGlobal
