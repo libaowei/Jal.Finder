@@ -23,7 +23,7 @@ Search the assemblies
 	var assemblies4 = f.GetAssemblies(x => x.FullName.Contains("Test"));
 
 [![Build status](https://ci.appveyor.com/api/projects/status/riewcxw29gy77855/branch/master?svg=true)](https://ci.appveyor.com/project/raulnq/jal-assemblyfinder/branch/master)
-[![NuGet](https://img.shields.io/nuget/v/Jal.AssemblyFinder.svg)](https://www.nuget.org/packages/Jal.AssemblyFinder) 
+[![NuGet](https://img.shields.io/nuget/v/Jal.Finder.svg)](https://www.nuget.org/packages/Jal.Finder) 
 
 
 
