@@ -7,7 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jal.Finder", "Jal.Finder\Ja
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{FFEABF0E-6A05-4430-A5AE-45BCEFBA4A6F}"
 	ProjectSection(SolutionItems) = preProject
-		.nuget\packages.config = .nuget\packages.config
 		README.md = README.md
 	EndProjectSection
 EndProject

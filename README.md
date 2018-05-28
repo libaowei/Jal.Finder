@@ -1,7 +1,11 @@
-# Jal.Finder
-Just another library to find assemblies
+# Jal.Finder [![Build status](https://ci.appveyor.com/api/projects/status/riewcxw29gy77855/branch/master?svg=true)](https://ci.appveyor.com/project/raulnq/jal-assemblyfinder/branch/master) [![NuGet](https://img.shields.io/nuget/v/Jal.Finder.svg)](https://www.nuget.org/packages/Jal.Finder) 
+
+Just another library to find stuffs
 
 ## How to use?
+
+### Assemblies
+
 Tag your assembly adding the next attribute in your AssemblyInfo.cs file:
 
     [assembly: AssemblyTag("Tag")]
@@ -10,7 +14,7 @@ Initiate the finder
 
     var directory = AppDomain.CurrentDomain.BaseDirectory;
 
-    finder = AssemblyFinder.Builder.UsePath(directory).Create;
+    var finder = AssemblyFinder.Create(directory);
     
 Search the assemblies
 
@@ -22,8 +26,6 @@ Search the assemblies
 
 	var assemblies4 = f.GetAssemblies(x => x.FullName.Contains("Test"));
 
-[![Build status](https://ci.appveyor.com/api/projects/status/riewcxw29gy77855/branch/master?svg=true)](https://ci.appveyor.com/project/raulnq/jal-assemblyfinder/branch/master)
-[![NuGet](https://img.shields.io/nuget/v/Jal.Finder.svg)](https://www.nuget.org/packages/Jal.Finder) 
 
 
 

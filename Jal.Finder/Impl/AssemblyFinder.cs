@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using Jal.Finder.Fluent.Impl;
-using Jal.Finder.Fluent.Interface;
 using Jal.Finder.Interface;
 
 namespace Jal.Finder.Impl
@@ -13,12 +11,9 @@ namespace Jal.Finder.Impl
     {
         public static IAssemblyFinder Current;
 
-        public static IAssemblyFinderStartFluentBuilder Builder
+        public static IAssemblyFinder Create(string path)
         {
-            get
-            {
-                return new AssemblyFinderFluentBuilder();
-            }
+            return new AssemblyFinder(path);
         }
 
         private readonly string _directoryPath;

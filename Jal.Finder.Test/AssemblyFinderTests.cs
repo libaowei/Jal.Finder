@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Jal.Finder.Atrribute;
 using Jal.Finder.Impl;
 using NUnit.Framework;
@@ -15,7 +12,7 @@ namespace Jal.Finder.Test
         [Test]
         public void GetAssemblies_With_ShouldNotBeEmpty()
         {
-            var sut = new AssemblyFinder(AppDomain.CurrentDomain.BaseDirectory);
+            var sut = AssemblyFinder.Create(AppDomain.CurrentDomain.BaseDirectory);
 
             var assemblies = sut.GetAssemblies();
 
